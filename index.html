@@ -6,54 +6,70 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<style>
-			/* 강제 레이아웃 조정 (기존 CSS를 이깁니다) */
+			/* 헤더 양쪽 끝 정렬 (로고 왼쪽, 메뉴 오른쪽) */
 			#header .container {
 				display: flex !important;
-				flex-direction: column !important;
+				flex-direction: row !important; /* 가로 정렬 */
+				justify-content: space-between !important; /* 양 끝으로 벌리기 */
 				align-items: flex-start !important;
-				text-align: left !important;
 				padding: 40px 0 20px 0 !important;
+				max-width: 100% !important;
+				width: 90% !important; /* 화면 양옆 여유 공간 */
+				margin: 0 auto !important;
 			}
 
-			#logo {
-				margin: 0 0 10px 0 !important;
-				padding-left: 0 !important;
+			/* 왼쪽 구역: 로고와 슬로건 */
+			.logo-area {
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
 			}
 
-			#logo img {
-				max-width: 260px !important;
-				height: auto !important;
-			}
+			#logo { margin: 0 0 10px 0 !important; }
+			#logo img { max-width: 260px !important; height: auto !important; }
 
 			.header-slogan {
-				font-size: 1.2em !important;
+				font-size: 1.1em !important;
 				color: #333333 !important;
 				font-weight: 800 !important;
 				text-transform: uppercase !important;
-				margin: 0 0 30px 0 !important;
+				margin: 0 !important;
 			}
 
-			/* 메뉴 강제 오른쪽 이동 (100px) */
+			/* 오른쪽 구역: 메뉴 */
 			#nav {
-				margin-left: 100px !important; /* 강제로 100px 밀기 */
-				position: relative !important;
-				left: 0 !important;
-				border-top: 1px solid #eeeeee !important;
-				padding-top: 15px !important;
-				width: calc(100% - 100px) !important;
+				margin: 10px 0 0 0 !important;
+				padding: 0 !important;
 			}
 
 			#nav > ul {
-				justify-content: flex-start !important;
 				display: flex !important;
 				list-style: none !important;
+				margin: 0 !important;
+				padding: 0 !important;
 			}
 
 			#nav > ul > li {
-				padding-right: 40px !important; /* 메뉴 간격도 조금 더 넓혔습니다 */
+				padding-left: 30px !important; /* 메뉴 사이 간격 */
+				margin: 0 !important;
 			}
 
-			/* 배너 강조 스타일 */
+			#nav > ul > li > a {
+				font-weight: 700 !important;
+				color: #333 !important;
+				text-decoration: none !important;
+			}
+
+			/* 모바일 대응: 화면이 작아지면 다시 위아래로 */
+			@media screen and (max-width: 980px) {
+				#header .container {
+					flex-direction: column !important;
+					align-items: center !important;
+				}
+				#nav > ul { margin-top: 20px !important; }
+				#nav > ul > li { padding: 0 15px !important; }
+			}
+
 			#banner p { font-size: 2.2em; font-weight: 900; line-height: 1.4em; }
 			#banner span.highlight { color: #ed786a; border-bottom: 3px solid #ed786a; }
 		</style>
@@ -64,20 +80,22 @@
 			<section id="header">
 					<div class="container">
 
-						<h1 id="logo">
+						<div class="logo-area">
+							<h1 id="logo">
 								<a href="index.html"><img src="images/logo_top.jpg" alt="Plus Mortgage Group"></a>
 							</h1>
-
-						<p class="header-slogan">Licensed Mortgage Banker in 26 States</p>
+							<p class="header-slogan">Licensed Mortgage Banker in 26 States</p>
+						</div>
 
 						<nav id="nav">
-								<ul>
-									<li><a href="index.html">Home</a></li>
-									<li><a href="#features">Programs</a></li>
-									<li><a href="#main">Services</a></li>
-									<li><a href="#footer">Contact Us</a></li>
-								</ul>
-							</nav>
+							<ul>
+								<li><a href="index.html">Home</a></li>
+								<li><a href="#features">Programs</a></li>
+								<li><a href="#main">Services</a></li>
+								<li><a href="#footer">Contact Us</a></li>
+							</ul>
+						</nav>
+
 					</div>
 				</section>
 
@@ -98,14 +116,14 @@
 								<section>
 									<a href="#" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
 									<header><h3>Refinance</h3></header>
-									<p>Optimize your mortgage with our nationwide network and streamlined refinancing programs to lower your rates.</p>
+									<p>Optimize your mortgage with our nationwide network and streamlined refinancing programs.</p>
 								</section>
 							</div>
 							<div class="col-4 col-6-medium col-12-small">
 								<section>
 									<a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
 									<header><h3>Commercial Loans</h3></header>
-									<p>Specialized financing options for commercial properties including retail, office, and multi-family units nationwide.</p>
+									<p>Specialized financing options for commercial properties nationwide.</p>
 								</section>
 							</div>
 						</div>
@@ -119,55 +137,10 @@
 					</div>
 				</section>
 
-			<section id="main">
-					<div class="container">
-						<div class="row">
-							<div id="content" class="col-12">
-								<article class="box post">
-									<header>
-										<h2>Your Trusted Partner in <strong>Real Estate Financing</strong></h2>
-									</header>
-									<p><strong>Plus Mortgage Group</strong> is a premier mortgage lending institution licensed in 26 states nationwide. As an experienced Mortgage Banker, we provide a comprehensive range of residential and commercial financing solutions tailored to your unique financial goals. Whether you are a first-time homebuyer or a seasoned investor, our expert team is dedicated to securing the most competitive rates and ensuring a seamless closing process. Trust Plus Mortgage Group for professional excellence and nationwide reach.</p>
-								</article>
-							</div>
-						</div>
-					</div>
-				</section>
-
 			<section id="footer">
 					<div class="container">
-						<header>
-							<h2>Questions or comments? <strong>Get in touch:</strong></h2>
-						</header>
 						<div class="row">
-							<div class="col-6 col-12-medium">
+							<div class="col-12">
 								<section>
-									<form method="post" action="#">
-										<div class="row gtr-50">
-											<div class="col-6 col-12-small"><input name="name" placeholder="Name" type="text" /></div>
-											<div class="col-6 col-12-small"><input name="email" placeholder="Email" type="text" /></div>
-											<div class="col-12"><textarea name="message" placeholder="Message"></textarea></div>
-											<div class="col-12"><a href="#" class="form-button-submit button icon solid fa-envelope">Send Message</a></div>
-										</div>
-									</form>
-								</section>
-							</div>
-							<div class="col-6 col-12-medium">
-								<section>
-									<p>Plus Mortgage Group leverages our extensive nationwide presence to provide the best mortgage rates and professional excellence for every client.</p>
-									<div class="row">
-										<div class="col-6 col-12-small">
-											<ul class="icons">
-												<li class="icon solid fa-home">1234 Wilshire blvd 235<br />Los Angeles, CA 90017</li>
-												<li class="icon solid fa-phone">213-247-0011</li>
-												<li class="icon solid fa-envelope"><a href="mailto:david@plusmtg.com">david@plusmtg.com</a></li>
-											</ul>
-										</div>
-									</div>
-								</section>
-							</div>
-						</div>
-					</div>
-					<div id="copyright" class="container">
-						<ul class="links">
-							<li>&copy; Plus Mortgage Group. All rights reserved.</li><li>Design: <a href="http://html5up.net
+									<p><strong>Plus Mortgage Group</strong> | 1234 Wilshire blvd 235, Los Angeles, CA 90017 | 213-247-0011</p>
+								</
