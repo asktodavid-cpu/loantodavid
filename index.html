@@ -6,50 +6,51 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<style>
-			/* 로고를 맨 위로, 메뉴를 아래로 배치 */
+			/* 헤더 전체 정렬: 로고와 메뉴의 간격 확보 */
 			#header .container {
 				display: flex;
-				flex-direction: column; /* 세로 방향으로 쌓기 */
-				align-items: flex-start; /* 왼쪽 정렬 */
-				padding: 30px 0 10px 0;
+				flex-direction: column;
+				align-items: flex-start;
+				padding: 40px 0 20px 0;
 			}
 
+			/* 로고: 맨 위 왼쪽 */
 			#logo {
-				margin: 0 0 15px 0; /* 로고와 슬로건 사이 간격 */
+				margin: 0 0 10px 0;
 			}
 
 			#logo img {
-				max-width: 280px; /* 로고를 조금 더 크게 강조 */
+				max-width: 260px;
 				height: auto;
 				display: block;
 			}
 
-			/* 슬로건 스타일 */
+			/* 슬로건: 로고 바로 아래 */
 			.header-slogan {
 				font-size: 1.2em;
 				color: #333333;
 				font-weight: 800;
 				text-transform: uppercase;
-				margin: 0 0 30px 0; /* 슬로건과 메뉴 사이 간격 */
+				margin: 0 0 35px 0;
 				text-align: left;
 			}
 
-			/* 메뉴바 스타일: 로고/슬로건 아래에 한 줄로 */
+			/* 메뉴: 오른쪽으로 약 1인치(100px) 이동 */
 			#nav {
 				width: 100%;
-				border-top: 1px solid #e5e5e5; /* 메뉴 위아래 구분선 (선택 사항) */
-				border-bottom: 1px solid #e5e5e5;
-				padding: 10px 0;
+				padding-left: 100px; /* 사장님이 요청하신 1인치 정도의 오른쪽 여백 */
+				border-top: 1px solid #eeeeee;
+				padding-top: 15px;
 			}
 
 			#nav > ul {
 				display: flex;
-				justify-content: flex-start; /* 왼쪽부터 메뉴 나열 */
+				justify-content: flex-start;
 				margin: 0;
 			}
 
 			#nav > ul > li {
-				padding: 0 25px 0 0; /* 메뉴 간격 */
+				padding: 0 30px 0 0;
 			}
 
 			#banner p { font-size: 2.2em; font-weight: 900; line-height: 1.4em; }
