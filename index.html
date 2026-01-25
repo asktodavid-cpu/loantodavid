@@ -6,84 +6,74 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<style>
-			/* 헤더 전체 레이아웃 조정 */
+			/* 헤더 전체 레이아웃: 로고와 메뉴를 위아래로 분리 */
 			#header {
-				padding: 40px 0 20px 0 !important;
-				position: relative;
+				padding: 40px 0 0 0 !important;
+				background: #fff;
 			}
 
 			#header .container {
 				display: flex !important;
-				justify-content: space-between !important;
-				align-items: flex-end !important; /* 아래쪽 라인을 기준으로 수평 정렬 */
+				flex-direction: column !important; /* 위아래 수직 배치 */
+				align-items: flex-start !important; /* 왼쪽 정렬 */
 				max-width: 1200px !important;
 				margin: 0 auto !important;
 				width: 90% !important;
 			}
 
-			/* 로고 구역: 슬로건과의 간격을 최소화 */
+			/* 로고 구역 */
 			.logo-area {
-				display: flex;
-				flex-direction: column;
-				align-items: flex-start;
+				margin-bottom: 20px !important;
 			}
 
-			#logo { 
-				margin: 0 0 5px 0 !important; /* 로고와 슬로건 사이 간격 축소 */
-				border: 0 !important; 
-				padding: 0 !important; 
-			}
-			#logo img { max-width: 230px !important; height: auto !important; display: block; }
+			#logo { margin: 0 0 5px 0 !important; border: 0 !important; padding: 0 !important; }
+			#logo img { max-width: 260px !important; height: auto !important; display: block; }
 
 			.header-slogan {
-				font-size: 1.05em !important;
+				font-size: 1.1em !important;
 				color: #333333 !important;
 				font-weight: 800 !important;
 				text-transform: uppercase !important;
-				margin: 0 !important; /* 슬로건 하단 여백 제거 */
-				padding: 0 !important;
+				margin: 0 !important;
 				letter-spacing: 0.5px;
-				line-height: 1.2;
 			}
 
-			/* 메뉴 구역: 슬로건 높이에 가깝게 밀착 */
+			/* 메뉴 구역: 로고 아래에 한 줄로 독립 배치 */
 			#nav {
-				margin: 0 0 2px 0 !important; /* 슬로건의 텍스트 라인과 맞추기 위해 미세 조정 */
-				padding: 0 !important;
-				background: none !important;
-				box-shadow: none !important;
-				border: none !important;
+				width: 100% !important;
+				margin: 0 !important;
+				padding: 15px 0 !important;
+				border-top: 1px solid #eee !important; /* 구분선으로 깔끔하게 */
+				border-bottom: 1px solid #eee !important;
+				background: #fdfdfd !important;
 			}
 
 			#nav > ul {
 				display: flex !important;
-				align-items: flex-end !important;
+				justify-content: flex-start !important;
 				list-style: none !important;
 				margin: 0 !important;
 				padding: 0 !important;
 			}
 
 			#nav > ul > li {
-				margin-left: 30px !important;
+				margin-right: 40px !important; /* 메뉴 글자 사이 간격 */
 				padding: 0 !important;
 			}
 
 			#nav > ul > li > a {
-				color: #444 !important;
+				color: #555 !important;
 				font-weight: 700 !important;
 				text-decoration: none !important;
-				font-size: 0.9em !important;
+				font-size: 0.95em !important;
 				text-transform: uppercase;
-				display: block !important;
+				transition: color 0.2s;
 			}
+
+			#nav > ul > li > a:hover { color: #ed786a !important; }
 
 			/* 모바일 대응 */
 			@media screen and (max-width: 980px) {
-				#header .container { 
-					flex-direction: column !important; 
-					align-items: center !important; 
-				}
-				#nav { margin-top: 25px !important; }
 				#nav > ul { justify-content: center !important; }
 				#nav > ul > li { margin: 0 15px !important; }
 			}
@@ -112,19 +102,26 @@
 					</div>
 				</section>
 
-			```
-
----
-
-### ✨ 수정 포인트
-1.  **수평 정렬 기준 변경:** `align-items: center`에서 `flex-end`로 변경하여, **슬로건 글자 라인과 메뉴 글자 라인이 바닥에서 일직선**으로 만나게 했습니다.
-2.  **슬로건 간격 축소:** 로고 바로 밑에 슬로건이 딱 붙도록 여백(`margin`)을 최소화했습니다.
-3.  **메뉴 높이 미세 조정:** 메뉴가 슬로건과 시각적으로 같은 층에 있는 것처럼 보이게 높이를 맞췄습니다.
-
-### 📋 업데이트 관리
-* **현재 상태:** 슬로건-메뉴 수평 밸런스 및 간격 최적화 완료. ✅
-* **진행 리스트:**
-    * [2026-01-24] `index.html` 헤더 레이아웃 미세 조정 (Bottom-aligned).
-* **다음 단계:** 이제 정말 배치가 완벽해졌습니다! 혹시 사이트 중앙의 **이미지 교체** 작업을 시작해 볼까요?
-
-사장님, **Commit** 하시고 1분 뒤에 확인해 보세요. 훨씬 꽉 짜인 느낌이 드실 겁니다! 😊
+			<section id="footer">
+					<div class="container">
+						<div class="row">
+							<div class="col-6 col-12-medium">
+								<section>
+									<form action="https://formspree.io/f/david@plusmtg.com" method="POST">
+										<div class="row gtr-50">
+											<div class="col-6 col-12-small"><input name="name" placeholder="Name" type="text" required /></div>
+											<div class="col-6 col-12-small"><input name="email" placeholder="Email" type="email" required /></div>
+											<div class="col-12"><textarea name="message" placeholder="Message" rows="4" required></textarea></div>
+											<div class="col-12">
+												<button type="submit" class="button icon solid fa-envelope">Send Message</button>
+											</div>
+										</div>
+									</form>
+								</section>
+							</div>
+                            </div>
+					</div>
+				</section>
+		</div>
+	</body>
+</html>
