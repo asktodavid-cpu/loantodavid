@@ -6,53 +6,54 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<style>
-			/* 헤더 전체 정렬: 로고와 메뉴의 간격 확보 */
+			/* 강제 레이아웃 조정 (기존 CSS를 이깁니다) */
 			#header .container {
-				display: flex;
-				flex-direction: column;
-				align-items: flex-start;
-				padding: 40px 0 20px 0;
+				display: flex !important;
+				flex-direction: column !important;
+				align-items: flex-start !important;
+				text-align: left !important;
+				padding: 40px 0 20px 0 !important;
 			}
 
-			/* 로고: 맨 위 왼쪽 */
 			#logo {
-				margin: 0 0 10px 0;
+				margin: 0 0 10px 0 !important;
+				padding-left: 0 !important;
 			}
 
 			#logo img {
-				max-width: 260px;
-				height: auto;
-				display: block;
+				max-width: 260px !important;
+				height: auto !important;
 			}
 
-			/* 슬로건: 로고 바로 아래 */
 			.header-slogan {
-				font-size: 1.2em;
-				color: #333333;
-				font-weight: 800;
-				text-transform: uppercase;
-				margin: 0 0 35px 0;
-				text-align: left;
+				font-size: 1.2em !important;
+				color: #333333 !important;
+				font-weight: 800 !important;
+				text-transform: uppercase !important;
+				margin: 0 0 30px 0 !important;
 			}
 
-			/* 메뉴: 오른쪽으로 약 1인치(100px) 이동 */
+			/* 메뉴 강제 오른쪽 이동 (100px) */
 			#nav {
-				width: 100%;
-				padding-left: 100px; /* 사장님이 요청하신 1인치 정도의 오른쪽 여백 */
-				border-top: 1px solid #eeeeee;
-				padding-top: 15px;
+				margin-left: 100px !important; /* 강제로 100px 밀기 */
+				position: relative !important;
+				left: 0 !important;
+				border-top: 1px solid #eeeeee !important;
+				padding-top: 15px !important;
+				width: calc(100% - 100px) !important;
 			}
 
 			#nav > ul {
-				display: flex;
-				justify-content: flex-start;
-				margin: 0;
+				justify-content: flex-start !important;
+				display: flex !important;
+				list-style: none !important;
 			}
 
 			#nav > ul > li {
-				padding: 0 30px 0 0;
+				padding-right: 40px !important; /* 메뉴 간격도 조금 더 넓혔습니다 */
 			}
 
+			/* 배너 강조 스타일 */
 			#banner p { font-size: 2.2em; font-weight: 900; line-height: 1.4em; }
 			#banner span.highlight { color: #ed786a; border-bottom: 3px solid #ed786a; }
 		</style>
@@ -71,10 +72,10 @@
 
 						<nav id="nav">
 								<ul>
-									<li><a class="icon solid fa-home" href="index.html"><span>Home</span></a></li>
-									<li><a class="icon solid fa-chart-bar" href="#features"><span>Programs</span></a></li>
-									<li><a class="icon solid fa-retweet" href="#main"><span>Services</span></a></li>
-									<li><a class="icon solid fa-envelope" href="#footer"><span>Contact Us</span></a></li>
+									<li><a href="index.html">Home</a></li>
+									<li><a href="#features">Programs</a></li>
+									<li><a href="#main">Services</a></li>
+									<li><a href="#footer">Contact Us</a></li>
 								</ul>
 							</nav>
 					</div>
@@ -169,16 +170,4 @@
 					</div>
 					<div id="copyright" class="container">
 						<ul class="links">
-							<li>&copy; Plus Mortgage Group. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-						</ul>
-					</div>
-				</section>
-		</div>
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/jquery.dropotron.min.js"></script>
-		<script src="assets/js/browser.min.js"></script>
-		<script src="assets/js/breakpoints.min.js"></script>
-		<script src="assets/js/util.js"></script>
-		<script src="assets/js/main.js"></script>
-	</body>
-</html>
+							<li>&copy; Plus Mortgage Group. All rights reserved.</li><li>Design: <a href="http://html5up.net
