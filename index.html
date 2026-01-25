@@ -6,37 +6,64 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<style>
-			/* 로고 왼쪽 정렬 및 스타일 조정 */
+			/* 로고와 메뉴를 가로로 나란히 배치 */
 			#header .container {
 				display: flex;
-				flex-direction: column;
-				align-items: flex-start; /* 모든 요소를 왼쪽으로 정렬 */
-				text-align: left;
+				flex-direction: row; /* 가로 방향 배치 */
+				align-items: center; /* 세로 중앙 정렬 */
+				justify-content: flex-start; /* 왼쪽부터 차례대로 */
+				padding: 20px 0;
+				max-width: 1200px;
 			}
+
 			#logo {
-				margin: 0 0 10px 0; /* 아래쪽 여백만 부여 */
+				margin: 0 40px 0 0; /* 로고와 메뉴 사이 여백 */
+				flex-shrink: 0;
 			}
+
 			#logo img {
-				max-width: 220px; /* 왼쪽 상단에 적합한 사이즈로 조절 */
+				max-width: 200px;
 				height: auto;
+				display: block;
 			}
-			#header p {
-				font-size: 1.2em;
-				color: #fff;
+
+			/* 메뉴 스타일 조정 */
+			#nav {
+				margin: 0;
+				padding: 0;
+				flex-grow: 1;
+			}
+
+			#nav > ul {
+				display: flex;
+				justify-content: flex-start; /* 메뉴를 로고 옆으로 밀착 */
+				margin: 0;
+			}
+
+			#nav > ul > li {
+				padding: 0 20px;
+			}
+
+			/* 상단 슬로건은 로고 바로 아래에 작게 배치하거나 헤더 밖으로 이동 가능 */
+			.header-slogan {
+				font-size: 1.1em;
+				color: #333333;
 				font-weight: 800;
 				text-transform: uppercase;
-				margin: 5px 0 20px 0;
-				text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+				margin-top: 10px;
+				padding-left: 0;
+				text-align: left;
 			}
-			#nav {
-				width: 100%;
-				text-align: left; /* 메뉴도 왼쪽부터 시작 */
+
+			/* 모바일 대응을 위한 미디어 쿼리 */
+			@media screen and (max-width: 980px) {
+				#header .container {
+					flex-direction: column;
+					align-items: center;
+				}
+				#logo { margin: 0 0 20px 0; }
 			}
-			#nav > ul {
-				justify-content: flex-start;
-			}
-			
-			/* 배너 강조 스타일 */
+
 			#banner p { font-size: 2.2em; font-weight: 900; line-height: 1.4em; }
 			#banner span.highlight { color: #ed786a; border-bottom: 3px solid #ed786a; }
 		</style>
@@ -50,7 +77,6 @@
 						<h1 id="logo">
 								<a href="index.html"><img src="images/logo_top.jpg" alt="Plus Mortgage Group"></a>
 							</h1>
-							<p>Licensed Mortgage Banker in 26 States</p>
 
 						<nav id="nav">
 								<ul>
@@ -60,7 +86,10 @@
 									<li><a class="icon solid fa-envelope" href="#footer"><span>Contact Us</span></a></li>
 								</ul>
 							</nav>
-
+					</div>
+					
+					<div class="container" style="padding-top: 0; padding-bottom: 20px;">
+						<p class="header-slogan">Licensed Mortgage Banker in 26 States</p>
 					</div>
 				</section>
 
@@ -153,4 +182,16 @@
 					</div>
 					<div id="copyright" class="container">
 						<ul class="links">
-							<li>&copy; Plus Mortgage Group. All rights reserved.</li><li>Design: <a href="
+							<li>&copy; Plus Mortgage Group. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</div>
+				</section>
+		</div>
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.dropotron.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+	</body>
+</html>
