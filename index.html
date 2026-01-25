@@ -6,134 +6,81 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<style>
-			/* 텍스트 로고 디자인 */
-			#logo a {
-				text-decoration: none;
-				color: #333 !important;
-				font-size: 1.5em; /* 크기 조절 */
-				font-weight: 900;
-				letter-spacing: -1px;
-				border: none !important;
-			}
-			#logo span {
-				color: #ed786a; /* 포인트 컬러 */
-			}
-			#logo .domain {
-				font-size: 0.6em;
-				font-weight: 400;
-				display: block;
-				margin-top: -5px;
-				color: #999;
-				letter-spacing: 1px;
-			}
-
-			/* 헤더 및 메뉴 레이아웃 */
-			#header {
-				padding: 40px 0 0 0 !important;
-				background: #fff;
-			}
+			/* 1. 헤더 레이아웃: 수직 정렬로 겹침 방지 */
 			#header .container {
 				display: flex !important;
 				flex-direction: column !important;
 				align-items: flex-start !important;
-				max-width: 1200px !important;
-				margin: 0 auto !important;
-				width: 90% !important;
-			}
-			.logo-area {
-				margin-bottom: 25px !important;
-			}
-			.header-slogan {
-				font-size: 1.1em !important;
-				color: #333 !important;
-				font-weight: 800 !important;
-				text-transform: uppercase !important;
-				margin: 10px 0 0 0 !important;
+				text-align: left !important;
+				padding: 40px 0 0 0 !important;
 			}
 
-			/* 메뉴 바 */
+			/* 2. 로고 대신 세련된 텍스트 디자인 (이미지 없어도 됨) */
+			#logo-text {
+				font-size: 2.2em !important;
+				font-weight: 900 !important;
+				color: #333 !important;
+				letter-spacing: -1px !important;
+				line-height: 1 !important;
+				margin-bottom: 5px !important;
+				text-decoration: none !important;
+				border: none !important;
+			}
+			#logo-text span { color: #ed786a; } /* Mortgage 부분 포인트 컬러 */
+			.domain-sub {
+				display: block;
+				font-size: 0.45em;
+				font-weight: 400;
+				color: #999;
+				letter-spacing: 1px;
+			}
+
+			/* 3. 슬로건 스타일 */
+			.header-slogan {
+				font-size: 1.1em !important;
+				color: #333333 !important;
+				font-weight: 800 !important;
+				text-transform: uppercase !important;
+				margin: 0 0 30px 0 !important;
+				text-shadow: none !important;
+			}
+
+			/* 4. 메뉴 스타일: 로고 아래에 한 줄로 정렬 */
 			#nav {
 				width: 100% !important;
-				padding: 15px 0 !important;
 				border-top: 1px solid #eee !important;
 				border-bottom: 1px solid #eee !important;
+				padding: 15px 0 !important;
+				margin: 0 !important;
 			}
 			#nav > ul {
 				display: flex !important;
 				justify-content: flex-start !important;
-				list-style: none !important;
 				margin: 0 !important;
 				padding: 0 !important;
+				list-style: none !important;
 			}
 			#nav > ul > li {
-				margin-right: 40px !important;
+				padding: 0 35px 0 0 !important;
 			}
 			#nav > ul > li > a {
-				color: #555 !important;
+				color: #444 !important;
 				font-weight: 700 !important;
-				font-size: 0.95em !important;
-				text-transform: uppercase;
+				text-transform: uppercase !important;
+				font-size: 0.9em !important;
 			}
 
-			/* 이메일 폼 스타일 */
-			.form-button-submit {
+			/* 배너 및 버튼 스타일 */
+			#banner p { font-size: 2.2em; font-weight: 900; line-height: 1.4em; }
+			#banner span.highlight { color: #ed786a; border-bottom: 3px solid #ed786a; }
+			.form-submit-btn {
 				background: #ed786a !important;
 				color: #fff !important;
-				border: 0 !important;
-				cursor: pointer;
-				padding: 10px 25px;
-				font-weight: 700;
+				border: none !important;
+				padding: 10px 30px !important;
+				font-weight: 700 !important;
+				cursor: pointer !important;
 			}
 		</style>
 	</head>
-	<body class="homepage is-preload">
-		<div id="page-wrapper">
-
-			<section id="header">
-					<div class="container">
-						<div class="logo-area">
-							<h1 id="logo">
-								<a href="index.html">PLUS<span>Mortgage</span> Group
-									<span class="domain">www.plusmtg.com</span>
-								</a>
-							</h1>
-							<p class="header-slogan">Licensed Mortgage Banker in 26 States</p>
-						</div>
-
-						<nav id="nav">
-							<ul>
-								<li><a href="index.html">Home</a></li>
-								<li><a href="#features">Programs</a></li>
-								<li><a href="#main">Services</a></li>
-								<li><a href="#footer">Contact Us</a></li>
-							</ul>
-						</nav>
-					</div>
-				</section>
-
-			<section id="footer">
-					<div class="container">
-						<header>
-							<h2>Questions or comments? <strong>Get in touch:</strong></h2>
-						</header>
-						<div class="row">
-							<div class="col-6 col-12-medium">
-								<section>
-									<form action="https://formspree.io/david@plusmtg.com" method="POST">
-										<div class="row gtr-50">
-											<div class="col-6 col-12-small"><input name="name" placeholder="Name" type="text" required /></div>
-											<div class="col-6 col-12-small"><input name="email" placeholder="Email" type="email" required /></div>
-											<div class="col-12"><textarea name="message" placeholder="Message" rows="4" required></textarea></div>
-											<div class="col-12">
-												<button type="submit" class="form-button-submit">Send Message</button>
-											</div>
-										</div>
-									</form>
-								</section>
-							</div>
-						</div>
-					</div>
-				</section>
-		</div>
-	</body>
-</html>
+	<body class="
