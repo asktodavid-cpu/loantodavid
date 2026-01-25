@@ -6,10 +6,53 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<style>
-			/* 문구를 더 잘 보이게 하기 위한 추가 스타일 */
-			#header p { font-size: 1.5em; color: #fff; font-weight: 700; text-transform: uppercase; margin-top: 10px; }
-			#banner p { font-size: 2em; line-height: 1.5em; }
-			#banner strong { color: #ffd700; font-size: 1.2em; } /* 26 States 부분을 금색으로 강조 */
+			/* 1. 헤더 정렬: 로고와 슬로건을 위로, 메뉴를 아래로 분리 (절대 안 겹침) */
+			#header .container {
+				display: flex !important;
+				flex-direction: column !important;
+				align-items: flex-start !important;
+				text-align: left !important;
+				padding: 40px 0 0 0 !important;
+			}
+
+			#logo { margin: 0 0 10px 0 !important; }
+			#logo a { border: none !important; font-size: 1.8em !important; font-weight: 900 !important; color: #fff !important; }
+
+			/* 슬로건 스타일 */
+			.header-slogan {
+				font-size: 1.3em !important;
+				color: #ffffff !important;
+				font-weight: 800 !important;
+				text-transform: uppercase !important;
+				margin: 0 0 30px 0 !important;
+				text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+			}
+
+			/* 2. 메뉴 바: 로고 아래에 깔끔하게 배치 */
+			#nav {
+				width: 100% !important;
+				border-top: 1px solid rgba(255,255,255,0.2) !important;
+				padding: 15px 0 !important;
+				margin: 0 !important;
+			}
+			#nav > ul {
+				justify-content: flex-start !important;
+			}
+
+			/* 3. 이메일 버튼 스타일 수정 */
+			.form-button-submit {
+				appearance: none;
+				background-color: #ed786a !important;
+				color: #fff !important;
+				border: 0 !important;
+				cursor: pointer;
+				display: inline-block;
+				font-weight: 700;
+				padding: 10px 30px;
+				text-align: center;
+				text-decoration: none;
+				text-transform: uppercase;
+			}
 		</style>
 	</head>
 	<body class="homepage is-preload">
@@ -17,20 +60,18 @@
 
 			<section id="header">
 					<div class="container">
-
 						<h1 id="logo"><a href="index.html">Plus Mortgage</a></h1>
-							<p style="font-size: 1.4em; font-weight: 800; color: #ffffff;">Licensed Mortgage Banker in 26 States</p>
+						<p class="header-slogan">Licensed Mortgage Banker in 26 States</p>
 
 						<nav id="nav">
-								<ul>
-									<li><a class="icon solid fa-home" href="index.html"><span>Home</span></a></li>
-									<li><a class="icon solid fa-chart-bar" href="#"><span>Mortgage Programs</span></a></li>
-									<li><a class="icon solid fa-cog" href="#"><span>About Us</span></a></li>
-									<li><a class="icon solid fa-retweet" href="#"><span>Refinance</span></a></li>
-									<li><a class="icon solid fa-envelope" href="#footer"><span>Contact Us</span></a></li>
-								</ul>
-							</nav>
-
+							<ul>
+								<li><a class="icon solid fa-home" href="index.html"><span>Home</span></a></li>
+								<li><a class="icon solid fa-chart-bar" href="#"><span>Mortgage Programs</span></a></li>
+								<li><a class="icon solid fa-cog" href="#"><span>About Us</span></a></li>
+								<li><a class="icon solid fa-retweet" href="#"><span>Refinance</span></a></li>
+								<li><a class="icon solid fa-envelope" href="#footer"><span>Contact Us</span></a></li>
+							</ul>
+						</nav>
 					</div>
 				</section>
 
@@ -41,42 +82,25 @@
 						</header>
 						<div class="row aln-center">
 							<div class="col-4 col-6-medium col-12-small">
-
 								<section>
-										<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-										<header>
-											<h3>Purchase Loans</h3>
-										</header>
-										<p>From first-time homebuyers to seasoned investors, we offer the most competitive rates across 26 states.</p>
-									</section>
-
+									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+									<header><h3>Purchase Loans</h3></header>
+									<p>From first-time homebuyers to seasoned investors, we offer the most competitive rates across 26 states.</p>
+								</section>
 							</div>
 							<div class="col-4 col-6-medium col-12-small">
-
 								<section>
-										<a href="#" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
-										<header>
-											<h3>Refinance</h3>
-										</header>
-										<p>Optimize your mortgage with our nationwide network and streamlined refinancing programs.</p>
-									</section>
-
+									<a href="#" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
+									<header><h3>Refinance</h3></header>
+									<p>Optimize your mortgage with our nationwide network and streamlined refinancing programs.</p>
+								</section>
 							</div>
 							<div class="col-4 col-6-medium col-12-small">
-
 								<section>
-										<a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
-										<header>
-											<h3>Commercial Loans</h3>
-										</header>
-										<p>Specialized financing options for commercial properties including retail, office, and multi-family units.</p>
-									</section>
-
-							</div>
-							<div class="col-12">
-								<ul class="actions">
-									<li><a href="#" class="button icon solid fa-file">Learn More</a></li>
-								</ul>
+									<a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
+									<header><h3>Commercial Loans</h3></header>
+									<p>Specialized financing options for commercial properties including retail, office, and multi-family units.</p>
+								</section>
 							</div>
 						</div>
 					</div>
@@ -99,19 +123,19 @@
 						<div class="row">
 							<div class="col-6 col-12-medium">
 								<section>
-									<form method="post" action="#">
+									<form action="https://formspree.io/david@plusmtg.com" method="POST">
 										<div class="row gtr-50">
 											<div class="col-6 col-12-small">
-												<input name="name" placeholder="Name" type="text" />
+												<input name="name" placeholder="Name" type="text" required />
 											</div>
 											<div class="col-6 col-12-small">
-												<input name="email" placeholder="Email" type="text" />
+												<input name="email" placeholder="Email" type="email" required />
 											</div>
 											<div class="col-12">
-												<textarea name="message" placeholder="Message"></textarea>
+												<textarea name="message" placeholder="Message" rows="4" required></textarea>
 											</div>
 											<div class="col-12">
-												<a href="#" class="form-button-submit button icon solid fa-envelope">Send Message</a>
+												<button type="submit" class="form-button-submit">Send Message</button>
 											</div>
 										</div>
 									</form>
@@ -123,27 +147,9 @@
 									<div class="row">
 										<div class="col-6 col-12-small">
 											<ul class="icons">
-												<li class="icon solid fa-home">
-													1234 Wilshire blvd 235<br />
-													Los Angeles, CA 90017<br />
-													USA
-												</li>
-												<li class="icon solid fa-phone">
-													213-247-0011
-												</li>
-												<li class="icon solid fa-envelope">
-													<a href="mailto:david@plusmtg.com">david@plusmtg.com</a>
-												</li>
-											</ul>
-										</div>
-										<div class="col-6 col-12-small">
-											<ul class="icons">
-												<li class="icon brands fa-facebook-f">
-													<a href="#">Facebook</a>
-												</li>
-												<li class="icon brands fa-instagram">
-													<a href="#">Instagram</a>
-												</li>
+												<li class="icon solid fa-home">1234 Wilshire blvd 235<br />Los Angeles, CA 90017</li>
+												<li class="icon solid fa-phone">213-247-0011</li>
+												<li class="icon solid fa-envelope"><a href="mailto:david@plusmtg.com">david@plusmtg.com</a></li>
 											</ul>
 										</div>
 									</div>
@@ -157,15 +163,13 @@
 						</ul>
 					</div>
 				</section>
-
 		</div>
 
 		<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
+		<script src="assets/js/jquery.dropotron.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
 	</body>
 </html>
