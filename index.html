@@ -27,6 +27,13 @@
         /* About & Strengths (Adjusted for dark background) */
         .about-text { text-align: center; max-width: 900px; margin: 0 auto 50px; font-size: 1.15rem; color: #fff; line-height: 1.9; }
 
+        /* Diverse Loan Programs - The Requested Grid Style */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-bottom: 80px; }
+        .card { background: #001a33; padding: 35px; border-radius: 12px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.3); transition: 0.3s; border: 1px solid #111; }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 12px 25px rgba(0,0,0,0.5); border-color: #ffcc00; }
+        .card h3 { color: #ffcc00; margin-bottom: 15px; font-size: 1.4rem; }
+        .card p { color: #eee; }
+
         /* Mortgage Calculator (Card is white, text inside is dark for readability) */
         .calculator-box { background: #fff; padding: 40px; border-radius: 15px; box-shadow: 0 15px 35px rgba(0,0,0,0.3); max-width: 650px; margin: 0 auto 80px; border: 1px solid #ddd; }
         .calculator-box .section-title { color: #003366; text-shadow: none; font-size: 2rem; margin-top: 0; }
@@ -36,13 +43,6 @@
         .result-box { background: #eef4f9; padding: 25px; border-radius: 10px; text-align: center; margin-top: 30px; border: 1px solid #ccddee; }
         .result-box h3 { color: #555; }
         .result-amount { font-size: 2.7rem; color: #c9302c; font-weight: bold; }
-
-        /* Services Grid (Darker Blue cards) */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-bottom: 80px; }
-        .card { background: #001a33; padding: 35px; border-radius: 12px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.3); transition: 0.3s; border: 1px solid #111; }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 12px 25px rgba(0,0,0,0.5); border-color: #ffcc00; }
-        .card h3 { color: #ffcc00; margin-bottom: 15px; font-size: 1.4rem; }
-        .card p { color: #eee; }
 
         /* Contact Section (Dark Blue) */
         .contact-section { background: #001122; color: white; padding: 100px 20px; text-align: center; border-top: 2px solid #000; }
@@ -80,26 +80,6 @@
         <p>Since our founding in 1997, Plus Mortgage Group, Inc. has achieved steady growth by putting our clients first. We take pride in offering a wide range of loan products that go beyond the standard, ensuring a smooth and pleasant journey toward homeownership.</p>
     </div>
 
-    <div id="calculator" class="calculator-box">
-        <h2 class="section-title">Mortgage Calculator</h2>
-        <div class="calc-input-group">
-            <label>Loan Amount ($)</label>
-            <input type="number" id="amount" value="500000" oninput="calculateMortgage()">
-        </div>
-        <div class="calc-input-group">
-            <label>Interest Rate (%)</label>
-            <input type="number" id="rate" value="6.5" step="0.01" oninput="calculateMortgage()">
-        </div>
-        <div class="calc-input-group">
-            <label>Loan Term (Years)</label>
-            <input type="number" id="years" value="30" oninput="calculateMortgage()">
-        </div>
-        <div class="result-box">
-            <h3 style="margin-top:0;">Estimated Monthly Payment</h3>
-            <div class="result-amount" id="monthlyPayment">$3,160.34</div>
-        </div>
-    </div>
-
     <h2 class="section-title" id="services">Diverse Loan Programs</h2>
     <div class="grid">
         <div class="card">
@@ -117,6 +97,26 @@
         <div class="card">
             <h3>Apartment Loans</h3>
             <p>Specialized commercial lending solutions for multi-family properties.</p>
+        </div>
+    </div>
+
+    <div id="calculator" class="calculator-box">
+        <h2 class="section-title">Mortgage Calculator</h2>
+        <div class="calc-input-group">
+            <label>Loan Amount ($)</label>
+            <input type="number" id="amount" value="500000" oninput="calculateMortgage()">
+        </div>
+        <div class="calc-input-group">
+            <label>Interest Rate (%)</label>
+            <input type="number" id="rate" value="6.5" step="0.01" oninput="calculateMortgage()">
+        </div>
+        <div class="calc-input-group">
+            <label>Loan Term (Years)</label>
+            <input type="number" id="years" value="30" oninput="calculateMortgage()">
+        </div>
+        <div class="result-box">
+            <h3 style="margin-top:0;">Estimated Monthly Payment</h3>
+            <div class="result-amount" id="monthlyPayment">$3,160.34</div>
         </div>
     </div>
 </div>
@@ -138,4 +138,25 @@
 
 <footer>
     <span class="footer-logo">Plus Mortgage Group, Inc.</span>
-    <p class="footer-highlight">Company NMLS
+    <p class="footer-highlight">Company NMLS #293779 | Licensed in 26 States</p>
+    <p>723 S. St Andrews Pl 303, Los Angeles CA 90005</p>
+    <p>Main (LA): <strong>213-247-0011</strong> | San Jose: <strong>408-642-0327</strong></p>
+    <p>Email: <a href="mailto:laloancenter@gmail.com" class="footer-contact-link">laloancenter@gmail.com</a></p>
+    <hr style="width: 80px; border: 1px solid #333; margin: 30px auto;">
+    <p>&copy; 1997-2026 Plus Mortgage Group, Inc. All rights reserved. <br> Equal Housing Opportunity Lender.</p>
+</footer>
+
+<script>
+    function calculateMortgage() {
+        const amount = document.getElementById('amount').value;
+        const rate = document.getElementById('rate').value / 100 / 12;
+        const payments = document.getElementById('years').value * 12;
+        if (amount && rate && payments) {
+            const x = Math.pow(1 + rate, payments);
+            const monthly = (amount * x * rate) / (x - 1);
+            document.getElementById('monthlyPayment').innerHTML = '$' + monthly.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        }
+    }
+</script>
+</body>
+</html>
