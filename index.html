@@ -5,77 +5,128 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plus Mortgage Group, Inc. | Expert Loan Solutions</title>
     <style>
-        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height: 1.5; margin: 0; color: #fff; background-color: #002244; }
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height: 1.6; margin: 0; color: #fff; background-color: #002244; }
         
-        nav { background: #001122; color: white; padding: 10px 0; text-align: center; position: sticky; top: 0; z-index: 1000; }
-        nav a { color: white; text-decoration: none; margin: 0 12px; font-weight: bold; font-size: 0.8rem; letter-spacing: 1px; }
+        nav { background: #001122; color: white; padding: 12px 0; text-align: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+        nav a { color: white; text-decoration: none; margin: 0 15px; font-weight: bold; font-size: 0.9rem; letter-spacing: 1px; }
         nav a:hover { color: #ffcc00; }
 
+        /* 상단 Hero: 제목과 부제목만 깔끔하게 */
         .hero { 
             background: linear-gradient(135deg, #003366 0%, #001122 100%);
-            color: white; padding: 20px 20px; text-align: center; 
+            color: white; padding: 30px 20px; text-align: center; 
         }
-        .hero h1 { font-size: 1.6rem; margin: 0 0 5px 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
-        .hero p { font-size: 0.9rem; max-width: 700px; margin: 0 auto; color: #ffcc00; font-weight: bold; }
+        .hero h1 { font-size: 2rem; margin: 0 0 10px 0; }
+        .hero p { font-size: 1rem; color: #ffcc00; font-weight: bold; margin: 0; }
 
-        .container { width: 92%; max-width: 1100px; margin: auto; padding: 20px 0; }
-        .section-title { text-align: center; margin-bottom: 20px; color: #ffcc00; font-size: 1.4rem; }
+        .container { width: 90%; max-width: 1200px; margin: auto; padding: 50px 0; } /* 섹션 간 여백 확보 */
+        .section-title { text-align: center; margin-bottom: 40px; color: #ffcc00; font-size: 2rem; border-bottom: 2px solid #003366; display: inline-block; padding-bottom: 10px; width: 100%; }
 
-        /* 융자 프로그램 그리드 */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-bottom: 30px; }
-        .card { background: #001a33; padding: 20px; border-radius: 8px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.2); border: 1px solid #111; }
-        .card h3 { color: #ffcc00; margin-bottom: 8px; font-size: 1rem; }
-        .card p { color: #eee; font-size: 0.8rem; margin: 0; }
+        /* 융자 프로그램 그리드 - 상세 내용을 위해 높이 제한을 없애고 여백을 늘림 */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 60px; }
+        .card { 
+            background: #001a33; padding: 35px; border-radius: 12px; 
+            text-align: left; /* 내용을 읽기 편하게 왼쪽 정렬로 변경 */
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4); 
+            transition: 0.3s; border: 1px solid #0b2b4d;
+            display: flex; flex-direction: column;
+        }
+        .card:hover { transform: translateY(-8px); border-color: #ffcc00; }
+        .card h3 { color: #ffcc00; margin-bottom: 15px; font-size: 1.4rem; border-bottom: 1px solid #003366; padding-bottom: 10px; }
+        .card p { color: #ddd; font-size: 0.95rem; margin-bottom: 10px; line-height: 1.7; }
+        .card ul { padding-left: 20px; margin: 0; color: #bbb; font-size: 0.9rem; }
+        .card li { margin-bottom: 8px; }
 
-        /* 업그레이드된 계산기 섹션 (더 작고 실용적인 디자인) */
-        .calculator-box { background: #fff; padding: 25px; border-radius: 10px; max-width: 480px; margin: 30px auto; color: #333; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
-        .calculator-box .section-title { color: #003366; font-size: 1.3rem; margin-bottom: 15px; }
+        /* 계산기 섹션 - 독립적인 공간 확보 */
+        .calculator-wrapper { background: #001122; padding: 60px 0; margin-top: 40px; }
+        .calculator-box { background: #fff; padding: 40px; border-radius: 15px; max-width: 550px; margin: 0 auto; color: #333; box-shadow: 0 15px 40px rgba(0,0,0,0.5); }
+        .calculator-box .section-title { color: #003366; border: none; font-size: 1.8rem; margin-bottom: 25px; }
         
-        .calc-row { display: flex; gap: 10px; margin-bottom: 12px; }
+        .calc-row { display: flex; gap: 15px; margin-bottom: 15px; }
         .calc-group { flex: 1; text-align: left; }
-        .calc-group label { display: block; margin-bottom: 4px; font-weight: bold; color: #003366; font-size: 0.75rem; }
-        .calc-group input { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 0.9rem; }
+        .calc-group label { display: block; margin-bottom: 6px; font-weight: bold; color: #003366; font-size: 0.85rem; }
+        .calc-group input { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 1rem; }
         
-        .loan-summary { background: #f8f9fa; padding: 10px; border-radius: 5px; margin-bottom: 15px; border-left: 4px solid #003366; font-size: 0.85rem; color: #555; }
-        .loan-summary strong { color: #003366; }
+        .loan-summary { background: #f0f4f8; padding: 15px; border-radius: 6px; margin-bottom: 20px; border-left: 5px solid #003366; font-size: 0.95rem; color: #333; }
+        .result-box { background: #003366; padding: 25px; border-radius: 10px; text-align: center; color: #fff; }
+        .result-label { font-size: 0.9rem; opacity: 0.9; margin-bottom: 8px; }
+        .result-amount { font-size: 2.5rem; color: #ffcc00; font-weight: bold; }
 
-        .result-box { background: #eef4f9; padding: 15px; border-radius: 8px; text-align: center; border: 1px solid #ccddee; }
-        .result-label { font-size: 0.8rem; color: #666; margin-bottom: 5px; }
-        .result-amount { font-size: 1.8rem; color: #c9302c; font-weight: bold; }
+        /* 연락처 및 푸터 */
+        .contact-section { padding: 80px 20px; text-align: center; }
+        .contact-form { max-width: 600px; margin: auto; }
+        .contact-form input, .contact-form textarea { width: 100%; padding: 15px; margin: 10px 0; border-radius: 6px; border: none; font-size: 1rem; }
+        .contact-form button { background: #ffcc00; color: #002244; padding: 18px; border: none; border-radius: 6px; cursor: pointer; font-size: 1.2rem; font-weight: bold; width: 100%; transition: 0.3s; }
+        .contact-form button:hover { background: #ffd633; }
 
-        .contact-section { background: #001122; padding: 40px 20px; text-align: center; }
-        .contact-form { max-width: 450px; margin: auto; }
-        .contact-form input, .contact-form textarea { width: 100%; padding: 10px; margin: 6px 0; border-radius: 4px; border: 1px solid #ccc; font-size: 0.85rem; }
-        .contact-form button { background: #ffcc00; color: #002244; padding: 12px; border: none; border-radius: 4px; cursor: pointer; font-size: 0.95rem; font-weight: bold; width: 100%; }
-
-        footer { text-align: center; padding: 30px 20px; background: #000911; color: #888; font-size: 0.75rem; }
-        .footer-link { color: #ffcc00; text-decoration: none; }
+        footer { text-align: center; padding: 50px 20px; background: #000911; color: #888; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
 <nav>
     <a href="#">HOME</a>
-    <a href="#services">PROGRAMS</a>
+    <a href="#services">LOAN PROGRAMS</a>
     <a href="#calculator">CALCULATOR</a>
     <a href="#contact">CONTACT</a>
 </nav>
 
 <section class="hero">
     <h1>Plus Mortgage Group, Inc.</h1>
-    <p>Expert Loan Solutions & Joyful Experience Since 1997</p>
+    <p>Licensed in 26 States | Expert Loan Solutions Since 1997</p>
 </section>
 
 <div class="container">
-    <h2 class="section-title" id="services">Our Specialized Loan Programs</h2>
+    <h2 class="section-title" id="services">Diverse Loan Programs</h2>
     <div class="grid">
-        <div class="card"><h3>Conventional</h3><p>Competitive rates for standard purchases.</p></div>
-        <div class="card"><h3>FHA Loans</h3><p>Low down payment for first-time buyers.</p></div>
-        <div class="card"><h3>Easy Jumbo</h3><p>High-balance financing made simple.</p></div>
-        <div class="card"><h3>Apartment</h3><p>Multi-family investment solutions.</p></div>
-    </div>
+        <div class="card">
+            <h3>Conventional Loans</h3>
+            <p>가장 일반적인 주택 구매 및 재융자 프로그램입니다.</p>
+            <ul>
+                <li>Competitive fixed & ARM rates</li>
+                <li>Primary, Second, or Investment properties</li>
+                <li>Minimum 3% down for first-time buyers</li>
+                <li>Flexible terms: 10, 15, 20, 25, 30 years</li>
+            </ul>
+        </div>
 
-    <div id="calculator" class="calculator-box">
+        <div class="card">
+            <h3>FHA Loans</h3>
+            <p>정부 보증 프로그램으로 낮은 다운페이와 완화된 조건이 특징입니다.</p>
+            <ul>
+                <li>Low 3.5% down payment</li>
+                <li>Credit scores as low as 580</li>
+                <li>Higher debt-to-income ratios allowed</li>
+                <li>Gift funds allowed for down payment</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Easy Jumbo Loans</h3>
+            <p>일반 융자 한도를 초과하는 고가 주택을 위한 전문 프로그램입니다.</p>
+            <ul>
+                <li>Loans up to $3M or more</li>
+                <li>Flexible asset verification options</li>
+                <li>Competitive rates for luxury homes</li>
+                <li>Purchase and Refinance available</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Apartment Loans</h3>
+            <p>다세대 주택 및 투자용 부동산을 위한 전문 융자입니다.</p>
+            <ul>
+                <li>5+ unit multi-family properties</li>
+                <li>Stated income / DSCR options</li>
+                <li>Flexible prepayment structures</li>
+                <li>Nationwide lending available</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="calculator-wrapper" id="calculator">
+    <div class="calculator-box">
         <h2 class="section-title">Mortgage Calculator</h2>
         
         <div class="calc-row">
@@ -119,20 +170,20 @@
 </div>
 
 <section class="contact-section" id="contact">
-    <h2 class="section-title">Get a Free Quote</h2>
+    <h2 class="section-title">Get a Free Quote Today</h2>
     <div class="contact-form">
         <form action="https://formspree.io/f/laloancenter@gmail.com" method="POST">
             <input type="text" name="name" placeholder="Full Name" required>
             <input type="email" name="_replyto" placeholder="Email Address" required>
             <input type="tel" name="phone" placeholder="Phone Number" required>
-            <textarea name="message" rows="3" placeholder="How can we help you?"></textarea>
+            <textarea name="message" rows="5" placeholder="프로그램에 대해 궁금하신 점을 적어주세요."></textarea>
             <button type="submit">SUBMIT INQUIRY</button>
         </form>
     </div>
 </section>
 
 <footer>
-    <p>NMLS #293779 | Licensed in 26 States | 213-247-0011</p>
+    <p>NMLS #293779 | Licensed in 26 States | Main Office: 213-247-0011</p>
     <p>&copy; 1997-2026 Plus Mortgage Group, Inc. All rights reserved.</p>
 </footer>
 
@@ -153,20 +204,15 @@
         calculateMortgage();
     }
 
-    function updateLoanAmount() {
-        updateByPercent();
-    }
+    function updateLoanAmount() { updateByPercent(); }
 
     function calculateMortgage() {
         const price = parseFloat(document.getElementById('purchasePrice').value) || 0;
         const down = parseFloat(document.getElementById('downAmount').value) || 0;
         const loanAmount = price - down;
-        
         document.getElementById('displayLoanAmount').innerHTML = '$' + loanAmount.toLocaleString();
-
         const rate = parseFloat(document.getElementById('rate').value) / 100 / 12;
         const payments = parseFloat(document.getElementById('years').value) * 12;
-
         if (loanAmount > 0 && rate > 0 && payments > 0) {
             const x = Math.pow(1 + rate, payments);
             const monthly = (loanAmount * x * rate) / (x - 1);
