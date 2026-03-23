@@ -5,82 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plus Mortgage Group, Inc. | Expert Loan Solutions Since 1997</title>
     <style>
-        /* Modern CSS Styles with Single Blue Background */
-        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height: 1.6; margin: 0; color: #fff; background-color: #002244; } /* Background Color changed to Blue */
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height: 1.6; margin: 0; color: #fff; background-color: #002244; }
         
-        /* Navigation (Darker Blue) */
         nav { background: #001122; color: white; padding: 15px 0; text-align: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
         nav a { color: white; text-decoration: none; margin: 0 15px; font-weight: bold; font-size: 0.9rem; letter-spacing: 1px; }
         nav a:hover { color: #ffcc00; }
 
-        /* Hero Section (Gradient for depth, but still Blue) */
         .hero { 
             background: linear-gradient(135deg, #003366 0%, #001122 100%);
-            color: white; padding: 120px 20px; text-align: center; 
+            color: white; padding: 100px 20px; text-align: center; 
         }
         .hero h1 { font-size: 3.5rem; margin-bottom: 15px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
-        .hero p { font-size: 1.25rem; max-width: 800px; margin: 0 auto 30px; line-height: 1.8; color: #eee; }
+        .hero p { font-size: 1.25rem; max-width: 800px; margin: 0 auto 30px; line-height: 1.8; color: #ffcc00; font-weight: bold; }
 
         .container { width: 90%; max-width: 1200px; margin: auto; padding: 60px 0; }
-        .section-title { text-align: center; margin-bottom: 50px; color: #ffcc00; font-size: 2.3rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); } /* High contrast yellow title */
+        .section-title { text-align: center; margin-bottom: 50px; color: #ffcc00; font-size: 2.3rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); }
 
-        /* About & Strengths (Adjusted for dark background) */
         .about-text { text-align: center; max-width: 900px; margin: 0 auto 50px; font-size: 1.15rem; color: #fff; line-height: 1.9; }
 
-        /* Diverse Loan Programs - The Requested Grid Style */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-bottom: 80px; }
+        /* Diverse Loan Programs - Top Grid Style */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-bottom: 60px; }
         .card { background: #001a33; padding: 35px; border-radius: 12px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.3); transition: 0.3s; border: 1px solid #111; }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 12px 25px rgba(0,0,0,0.5); border-color: #ffcc00; }
+        .card:hover { transform: translateY(-10px); border-color: #ffcc00; }
         .card h3 { color: #ffcc00; margin-bottom: 15px; font-size: 1.4rem; }
         .card p { color: #eee; }
 
-        /* Mortgage Calculator (Card is white, text inside is dark for readability) */
-        .calculator-box { background: #fff; padding: 40px; border-radius: 15px; box-shadow: 0 15px 35px rgba(0,0,0,0.3); max-width: 650px; margin: 0 auto 80px; border: 1px solid #ddd; }
+        /* Mortgage Calculator - Moved Below Programs */
+        .calculator-box { background: #fff; padding: 40px; border-radius: 15px; box-shadow: 0 15px 35px rgba(0,0,0,0.3); max-width: 650px; margin: 80px auto; border: 1px solid #ddd; color: #333; }
         .calculator-box .section-title { color: #003366; text-shadow: none; font-size: 2rem; margin-top: 0; }
         .calc-input-group { margin-bottom: 20px; text-align: left; }
         .calc-input-group label { display: block; margin-bottom: 10px; font-weight: bold; color: #003366; }
         .calc-input-group input { width: 100%; padding: 14px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; font-size: 1.1rem; color: #333; }
         .result-box { background: #eef4f9; padding: 25px; border-radius: 10px; text-align: center; margin-top: 30px; border: 1px solid #ccddee; }
-        .result-box h3 { color: #555; }
         .result-amount { font-size: 2.7rem; color: #c9302c; font-weight: bold; }
 
-        /* Contact Section (Dark Blue) */
         .contact-section { background: #001122; color: white; padding: 100px 20px; text-align: center; border-top: 2px solid #000; }
         .contact-form { max-width: 550px; margin: auto; }
         .contact-form input, .contact-form textarea { width: 100%; padding: 14px; margin: 12px 0; border-radius: 6px; border: 1px solid #ccc; box-sizing: border-box; font-size: 1rem; color: #333; background: #fff; }
-        .contact-form button { background: #ffcc00; color: #002244; padding: 18px; border: none; border-radius: 6px; cursor: pointer; font-size: 1.2rem; font-weight: bold; width: 100%; transition: 0.3s; margin-top: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.2); }
-        .contact-form button:hover { background: #e6b800; transform: translateY(-2px); }
+        .contact-form button { background: #ffcc00; color: #002244; padding: 18px; border: none; border-radius: 6px; cursor: pointer; font-size: 1.2rem; font-weight: bold; width: 100%; transition: 0.3s; margin-top: 15px; }
 
-        /* Footer (Darkest Blue) */
         footer { text-align: center; padding: 60px 20px; background: #000911; color: #aaa; font-size: 0.95rem; line-height: 1.8; border-top: 1px solid #111; }
-        .footer-logo { color: #fff; font-size: 1.5rem; font-weight: bold; margin-bottom: 15px; display: block; letter-spacing: 1px; }
-        .footer-highlight { color: #ddd; font-weight: bold; }
+        .footer-logo { color: #fff; font-size: 1.5rem; font-weight: bold; margin-bottom: 15px; display: block; }
         .footer-contact-link { color: #ffcc00; text-decoration: none; font-weight: bold; }
-        .footer-contact-link:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
 
 <nav>
     <a href="#">HOME</a>
+    <a href="#services">LOAN PROGRAMS</a>
     <a href="#about">ABOUT US</a>
     <a href="#calculator">CALCULATOR</a>
-    <a href="#services">PROGRAMS</a>
     <a href="#contact">CONTACT</a>
 </nav>
 
 <section class="hero">
     <h1>Plus Mortgage Group, Inc.</h1>
-    <p>Licensed in 26 States to serve you better. We provide a "Happy & Joyful" loan experience through specialized programs tailored to your financial freedom.</p>
+    <p>Expert Loan Solutions & Joyful Experience Since 1997</p>
 </section>
 
 <div class="container">
-    <div id="about" class="about-text">
-        <h2 class="section-title">A Tradition of Growth & Excellence</h2>
-        <p>Since our founding in 1997, Plus Mortgage Group, Inc. has achieved steady growth by putting our clients first. We take pride in offering a wide range of loan products that go beyond the standard, ensuring a smooth and pleasant journey toward homeownership.</p>
-    </div>
-
-    <h2 class="section-title" id="services">Diverse Loan Programs</h2>
+    <h2 class="section-title" id="services">Our Specialized Loan Programs</h2>
     <div class="grid">
         <div class="card">
             <h3>Conventional Loans</h3>
@@ -98,6 +83,11 @@
             <h3>Apartment Loans</h3>
             <p>Specialized commercial lending solutions for multi-family properties.</p>
         </div>
+    </div>
+
+    <div id="about" class="about-text">
+        <h2 class="section-title">A Tradition of Growth & Excellence</h2>
+        <p>Plus Mortgage Group, Inc. has achieved steady growth by putting our clients first. We take pride in offering a wide range of loan products that go beyond the standard, ensuring a smooth and pleasant journey toward homeownership across 26 states.</p>
     </div>
 
     <div id="calculator" class="calculator-box">
@@ -122,15 +112,13 @@
 </div>
 
 <section class="contact-section" id="contact">
-    <h2 class="section-title">Connect With Our Experts</h2>
-    <p style="color:#eee; margin-bottom:30px;">Licensed in 26 states to meet all your mortgage needs. Get a quote today!</p>
+    <h2 class="section-title">Get a Free Quote</h2>
     <div class="contact-form">
         <form action="https://formspree.io/f/laloancenter@gmail.com" method="POST">
             <input type="text" name="name" placeholder="Full Name" required>
             <input type="email" name="_replyto" placeholder="Email Address" required>
             <input type="tel" name="phone" placeholder="Phone Number" required>
-            <textarea name="message" rows="5" placeholder="Which program are you interested in? (FHA, Jumbo, etc.)"></textarea>
-            <input type="text" name="_gotcha" style="display:none">
+            <textarea name="message" rows="5" placeholder="How can we help you today?"></textarea>
             <button type="submit">SUBMIT INQUIRY</button>
         </form>
     </div>
@@ -138,12 +126,10 @@
 
 <footer>
     <span class="footer-logo">Plus Mortgage Group, Inc.</span>
-    <p class="footer-highlight">Company NMLS #293779 | Licensed in 26 States</p>
-    <p>723 S. St Andrews Pl 303, Los Angeles CA 90005</p>
+    <p>Company NMLS #293779 | Licensed in 26 States</p>
     <p>Main (LA): <strong>213-247-0011</strong> | San Jose: <strong>408-642-0327</strong></p>
     <p>Email: <a href="mailto:laloancenter@gmail.com" class="footer-contact-link">laloancenter@gmail.com</a></p>
-    <hr style="width: 80px; border: 1px solid #333; margin: 30px auto;">
-    <p>&copy; 1997-2026 Plus Mortgage Group, Inc. All rights reserved. <br> Equal Housing Opportunity Lender.</p>
+    <p>&copy; 1997-2026 Plus Mortgage Group, Inc. All rights reserved.</p>
 </footer>
 
 <script>
