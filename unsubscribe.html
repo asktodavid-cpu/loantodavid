@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Unsubscribe | Plus Mortgage Group</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin:0; background:#f4f4f4; font-family:Arial, Helvetica, sans-serif; color:#333; }
+  .card { max-width:480px; margin:40px auto; background:#fff; border-radius:6px; overflow:hidden; box-shadow:0 2px 10px rgba(0,0,0,.08); }
+  .head { background:#0b3d6e; color:#fff; padding:20px 26px; }
+  .head h1 { margin:0; font-size:22px; }
+  .head p { margin:4px 0 0; font-size:13px; color:#cfe0f1; }
+  .body { padding:26px; }
+  .body h2 { margin:0 0 10px; font-size:20px; color:#0b3d6e; }
+  .body p { font-size:15px; line-height:22px; margin:0 0 16px; }
+  label { display:block; font-size:13px; font-weight:bold; margin-bottom:6px; }
+  input[type=email] { width:100%; padding:12px; font-size:16px; border:1px solid #ccc; border-radius:4px; margin-bottom:16px; }
+  button { width:100%; padding:14px; font-size:16px; font-weight:bold; color:#fff; background:#e8792b; border:0; border-radius:4px; cursor:pointer; }
+  button:disabled { background:#bbb; cursor:default; }
+  .msg { display:none; }
+  .err { color:#b00020; font-size:14px; }
+  .foot { padding:14px 26px 22px; font-size:11px; line-height:16px; color:#888; background:#fafafa; }
+  @media (max-width:520px) { .card { margin:0; border-radius:0; box-shadow:none; } }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="head">
+    <h1>Plus Mortgage Group</h1>
+    <p>Direct Lender</p>
+  </div>
+
+  <div class="body">
+    <!-- Step 1: confirm -->
+    <div id="formBox">
+      <h2>Unsubscribe</h2>
+      <p>Click the button below and we'll stop sending marketing emails to this address.</p>
+      <form id="unsubForm">
+        <label for="email">Email address</label>
+        <input type="email" id="email" required placeholder="you@example.com">
+        <button type="submit" id="btn">Unsubscribe</button>
+        <p class="err" id="err" style="display:none;margin-top:12px;"></p>
+      </form>
+    </div>
+
+    <!-- Step 2: done -->
+    <div id="doneBox" class="msg">
+      <h2>You've been unsubscribed</h2>
+      <p><b id="doneEmail"></b> will no longer receive marketing emails from Plus Mortgage Group.
+      Please allow a few days for this change to take effect.</p>
+      <p>Questions? Call us at 213-247-0011.</p>
+    </div>
+  </div>
+
+  <div class="foot">
+    Plus Mortgage Group &middot; Company NMLS# 1783260 &middot; Equal Housing Opportunity
+  </div>
+</div>
+
+<script>
+/* ===== SETTINGS: replace these two values from your Google Form ===== */
+var FORM_ID  = "PASTE_FORM_ID_HERE";        // the long id between /d/e/ and /viewform
+var ENTRY_ID = "entry.PASTE_ENTRY_NUMBER";  // e.g. entry.1234567890
+/* =================================================================== */
+
+(function () {
+  var params = new URLSearchParams(window.location.search);
+  var preset = (params.get("email") || "").trim();
+  var input = document.getElementById("email");
+  // ignore an unreplaced template tag such as {{Email}} or [Email]
+  if (preset && preset.indexOf("@") > 0 && !/[{}\[\]]/.test(preset)) input.value = preset;
+
+  document.getElementById("unsubForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var email = input.value.trim();
+    var err = document.getElementById("err");
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      err.textContent = "Please enter a valid email address."; err.style.display = "block"; return;
+    }
+    err.style.display = "none";
+    var btn = document.getElementById("btn");
+    btn.disabled = true; btn.textContent = "Processing...";
+
+    var body = new URLSearchParams();
+    body.append(ENTRY_ID, email);
+
+    fetch("https://docs.google.com/forms/d/e/" + FORM_ID + "/formResponse", {
+      method: "POST", mode: "no-cors", body: body
+    }).then(function () {
+      document.getElementById("formBox").style.display = "none";
+      document.getElementById("doneEmail").textContent = email;
+      document.getElementById("doneBox").style.display = "block";
+    }).catch(function () {
+      btn.disabled = false; btn.textContent = "Unsubscribe";
+      err.textContent = "Something went wrong. Please email david@plusmtg.com with the subject \"Unsubscribe\".";
+      err.style.display = "block";
+    });
+  });
+})();
+</script>
+</body>
+</html>
