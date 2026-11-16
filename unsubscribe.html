@@ -37,20 +37,15 @@
     <div id="formBox">
       <h2>Unsubscribe</h2>
       <p>Click the button below and we'll stop sending marketing emails to this address.</p>
-      <form id="unsubForm">
+      <form id="unsubForm" action="https://formspree.io/f/xykeqolw" method="POST">
+        <input type="hidden" name="_subject" value="UNSUBSCRIBE REQUEST">
+        <input type="hidden" name="name" value="UNSUBSCRIBE">
+        <input type="hidden" name="phone" value="-">
+        <input type="hidden" name="message" id="msgField" value="Please remove this address from marketing emails.">
         <label for="email">Email address</label>
-        <input type="email" id="email" required placeholder="you@example.com">
+        <input type="email" id="email" name="_replyto" required placeholder="you@example.com">
         <button type="submit" id="btn">Unsubscribe</button>
-        <p class="err" id="err" style="display:none;margin-top:12px;"></p>
       </form>
-    </div>
-
-    <!-- Step 2: done -->
-    <div id="doneBox" class="msg">
-      <h2>You've been unsubscribed</h2>
-      <p><b id="doneEmail"></b> will no longer receive marketing emails from Plus Mortgage Group.
-      Please allow a few days for this change to take effect.</p>
-      <p>Questions? Call us at 213-247-0011.</p>
     </div>
   </div>
 
@@ -60,48 +55,14 @@
 </div>
 
 <script>
-/* Uses the same Formspree form as the website contact form.
-   Unsubscribe requests arrive in your email / Formspree dashboard
-   with the subject "UNSUBSCRIBE REQUEST". */
-var FORMSPREE_URL = "https://formspree.io/f/xykeqolw";
-
 (function () {
   var params = new URLSearchParams(window.location.search);
   var preset = (params.get("email") || "").trim();
   var input = document.getElementById("email");
-  // ignore an unreplaced template tag such as {{Email}} or [Email]
   if (preset && preset.indexOf("@") > 0 && !/[{}\[\]]/.test(preset)) input.value = preset;
-
-  document.getElementById("unsubForm").addEventListener("submit", function (e) {
-    e.preventDefault();
-    var email = input.value.trim();
-    var err = document.getElementById("err");
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      err.textContent = "Please enter a valid email address."; err.style.display = "block"; return;
-    }
-    err.style.display = "none";
-    var btn = document.getElementById("btn");
-    btn.disabled = true; btn.textContent = "Processing...";
-
-    fetch(FORMSPREE_URL, {
-      method: "POST",
-      headers: { "Accept": "application/json", "Content-Type": "application/json" },
-      body: JSON.stringify({
-        _subject: "UNSUBSCRIBE REQUEST",
-        email: email,
-        _replyto: email,
-        message: "Please remove this address from marketing emails: " + email
-      })
-    }).then(function (r) {
-      if (!r.ok) throw new Error("send failed");
-      document.getElementById("formBox").style.display = "none";
-      document.getElementById("doneEmail").textContent = email;
-      document.getElementById("doneBox").style.display = "block";
-    }).catch(function () {
-      btn.disabled = false; btn.textContent = "Unsubscribe";
-      err.textContent = "Something went wrong. Please email david@plusmtg.com with the subject \"Unsubscribe\".";
-      err.style.display = "block";
-    });
+  document.getElementById("unsubForm").addEventListener("submit", function () {
+    document.getElementById("msgField").value = "UNSUBSCRIBE: please remove " + input.value.trim() + " from marketing emails.";
+    var btn = document.getElementById("btn"); btn.textContent = "Processing...";
   });
 })();
 </script>
